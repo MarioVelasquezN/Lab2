@@ -1,0 +1,13 @@
+<div class="main">
+  <div class="icon">
+    <i class="ri-account-circle-fill"></i>
+  </div>
+  <div class="details">
+    <span>{{ contact.titulo }} {{ contact.nombre }}</span>
+    <span><i class="ri-mail-fill"></i>{{ contact.email }}</span>
+    <span><i class="ri-phone-fill"></i>{{ contact.numero }}</span>
+  </div>
+  <div class="delete-icon">
+    <i class="ri-delete-bin-6-fill" (click)="deleteContact()"></i>
+  </div>
+</div>

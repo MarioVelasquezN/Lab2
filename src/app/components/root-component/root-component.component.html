@@ -1,0 +1,15 @@
+<div class="root">
+  <h2>Lista de Contactos</h2>
+
+  <app-contacts-list
+    [contacts]="contacts"
+    [refreshResults]="resetResults"
+    (selectedContact)="setSelectedContact($event)"
+    (newContactAdded)="addContact($event)"
+  ></app-contacts-list>
+  <app-contact-details
+    *ngIf="selectedContact"
+    [contact]="selectedContact"
+    (deletedContact)="deleteContact($event)"
+  ></app-contact-details>
+</div>

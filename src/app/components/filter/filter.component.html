@@ -1,0 +1,13 @@
+<div class="search">
+    <i class="ri-search-line"></i>
+    <input type="text" name="value" [(ngModel)]="query.value" (input)="search()">
+    <select
+    name="titulo"
+    [(ngModel)]="query.filterBy"
+  >
+    <option selected disabled>Filtrar por</option>
+    <option value="Nombre">Nombre</option>
+    <option value="Numero">Numero</option>
+    <option value="Email">Email</option>
+  </select>
+</div>

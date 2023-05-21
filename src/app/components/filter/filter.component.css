@@ -1,0 +1,39 @@
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: white;
+    border: 1px solid gray;
+    margin-bottom: 12px;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.search i {
+    color: white;
+}
+
+.search input {
+    border: none;
+    background-color: transparent;
+    caret-color: white;
+    color: white;
+}
+
+.search select {
+       background-color: transparent;
+       color: white;
+        border: none;
+}
+
+.search select option {
+    background-color: black;
+    color: white;
+
+} 
+
+.search input:focus{
+    outline: none;
+}

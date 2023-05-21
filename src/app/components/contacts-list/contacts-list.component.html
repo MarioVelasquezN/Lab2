@@ -1,0 +1,122 @@
+<div class="list">
+  <app-filter [contacts]="contacts" (onQuery)="onQuery($event)"></app-filter>
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Titulo</th>
+        <th scope="col">Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of filteredContacts.length > 0 && !refreshResults?  filteredContacts : contacts" (click)="selectContact(contact)">
+        <td>{{ contact.titulo }}</td>
+        <td class="name-icon">
+          {{ contact.nombre }} <span><i class="ri-edit-2-fill" (click)="toggleEdit(contact)"></i></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="add-contact">
+
+    <button class="btn btn-success" (click)="showForm = !showForm">
+      Agregar contacto
+    </button>
+
+    <div class="form" *ngIf="showForm || showEdit">
+      <form #myForm="ngForm" (ngSubmit)="addContact(myForm)">
+        <div class="title-name">
+          <div class="form-control-wrap">
+            <select
+              #titulo="ngModel"
+              class="form-select"
+              name="titulo"
+              [(ngModel)]="newContact.titulo"
+              [class.is-valid]="titulo.valid"
+              [class.is-invalid]="titulo.invalid"
+              required
+            >
+              <option selected value="Sr">Sr</option>
+              <option value="Sra">Sra</option>
+              <option value="Otro">Otro</option>
+            </select>
+
+            <div
+              [hidden]="titulo.valid || titulo.pristine"
+              class="alert alert-danger"
+            >
+              El campo titulo es requerido
+            </div>
+          </div>
+          <div class="form-control-wrap">
+            <input
+              #nombre="ngModel"
+              class="form-control"
+              name="nombre"
+              placeholder="Nombre"
+              type="text"
+              [(ngModel)]="newContact.nombre"
+              [class.is-valid]="nombre.valid"
+              [class.is-invalid]="nombre.invalid"
+              minlength="3"
+              required
+            />
+            <div
+              [hidden]="nombre.valid || nombre.pristine"
+              class="alert alert-danger"
+            >
+              El campo nombre es requerido o invalido
+            </div>
+          </div>
+        </div>
+        <div class="form-control-wrap">
+          <input
+            #numero="ngModel"
+            placeholder="Numero"
+            class="form-control"
+            type="text"
+            name="numero"
+            [class.is-valid]="numero.valid"
+            [class.is-invalid]="numero.invalid"
+            [(ngModel)]="newContact.numero"
+            required
+          />
+          <div
+            [hidden]="numero.valid || numero.pristine"
+            class="alert alert-danger"
+          >
+            El campo numero es requerido
+          </div>
+        </div>
+        <div class="form-control-wrap">
+          <input
+            #email="ngModel"
+            placeholder="Email"
+            class="form-control"
+            type="email"
+            name="email"
+            [pattern]="emailPattern"
+            [(ngModel)]="newContact.email"
+            [class.is-valid]="email.valid"
+            [class.is-invalid]="email.invalid"
+            required
+          />
+          <div
+            [hidden]="email.valid || email.pristine"
+            class="alert alert-danger"
+          >
+            El campo email es requerido o invalido
+          </div>
+        </div>
+
+        <button
+          *ngIf="!showEdit"
+          [disabled]="myForm.invalid"
+          class="btn btn-primary"
+          type="submit"
+        >
+          Guardar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

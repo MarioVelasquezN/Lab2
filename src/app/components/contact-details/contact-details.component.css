@@ -1,0 +1,30 @@
+.main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon i {
+    font-size: 60px;
+    color: white;
+}
+
+.delete-icon i:hover {
+    cursor: pointer;
+}
+
+.main .details {
+  display: flex;
+  flex-direction: column;
+}
+
+.details span{
+    color: white;
+    display: flex;
+    gap: 8px;
+}
+
+.delete-icon i {
+    color: red;
+    margin-left: 10px;
+}
