@@ -13,14 +13,14 @@ export class RootComponent {
       nombre: 'Mario',
       email: 'mario@email.com',
       numero: '+504 96742099',
-      titulo: 'Sra',
+      titulo: 'Sr',
     },
     {
       id: 1,
-      nombre: 'Rodri',
-      email: 'rodri@email.com',
+      nombre: 'Rolando',
+      email: 'rolando@email.com',
       numero: '+504 4321 3254',
-      titulo: 'Sra',
+      titulo: 'Sr',
     },
   ];
 
